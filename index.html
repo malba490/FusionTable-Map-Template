@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <title>Searchable Map Template Demo</title>
+    <title>Voting District Map</title>
     <meta charset='utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content='' name='description' />
@@ -23,60 +23,37 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class='navbar-brand' href='index.html'>Searchable Map Template</a>
+          <a class='navbar-brand' href='index.html'>Find Your Voting Location</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <!--<div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class='active'><a href="index.html">Map</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">About</a></li> 
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
+
+
+
+
     <div class='container-fluid'>
       <div class='row'>
         <div class='col-md-4'>
-          <p>This is a demo of <a href='http://derekeder.com'>Derek Eder's</a> <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> using Google <a href='http://support.google.com/fusiontables/answer/2571232?hl=en&ref_topic=1652595'>Fusion Tables</a>. Use this section to give a little context to your map.</p>
-          <div class='well'>
+
+		<!-- page blurp -->
+		  <p> Michelle Wu's Campaign believes in making voting as easy as possible. We have developed this map to make finding your voting location as easy as possible.</p>
+          <p> Find you voting location by searching your home address. Once the search comes up, click on the map to see polling information</p>
+          
+		<!-- Search bar -->
+		  <div class='well'>
             <h4>
               Address <small>(<a id='find_me' href='#'>find me</a>)</small>
             </h4>
             <p>
               <input class='form-control' id='search_address' placeholder='Enter an address or an intersection' type='text' />
             </p>
-            <p>
-              <label>
-                within
-                <select id='search_radius'>
-                  <option value='400'>2 blocks</option>
-                  <option value='805'>1/2 mile</option>
-                  <option value='1610'>1 mile</option>
-                  <option value='3220'>2 miles</option>
-                </select>
-              </label>
-            </p>
 
-            <br />
-            <h4>Custom filters and views</h4>
-            <p>Take a look at the <a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples'>wiki</a> to see how to add your own custom filters and views like:</p>
-            <div class='row'>
-              <div class='col-md-6'>
-                <ul>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-checkboxes'>Checkboxes</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-radiobuttons'>Radio buttons</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-drop-down-lists'>Drop down lists</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches'>Text searches</a></li>
-                </ul>
-              </div>
-              <div class='col-md-6'>
-                <ul>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-sliders'>Sliders</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-date-sliders'>Date sliders</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results'>Results lists</a></li>
-                </ul>
-              </div>
-            </div>
-            <br />
             <a class='btn btn-primary' id='search' href='#'>
               <i class='glyphicon glyphicon-search'></i>
               Search
@@ -86,8 +63,35 @@
               Reset
             </a>
           </div>
-          <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
-        </div>
+
+		<!-- Google translate plugin -->
+		<p>Translate this page:</p>
+
+		
+		
+		<div id="google_translate_element"></div>
+			<script type="text/javascript">
+				function googleTranslateElementInit() {
+				new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+				}
+			</script>
+			
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
+<!--			<div id="google_translate_element"></div>
+				<script type="text/javascript">
+					function googleTranslateElementInit() {
+						new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,zh-CN', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: false}, 'google_translate_element');
+					}
+				</script>
+				
+				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+-->
+
+
+    <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
+    </div>
         <div class='col-md-8'>
           <noscript>
             <div class='alert alert-info'>
@@ -96,9 +100,16 @@
             </div>
           </noscript>
           <div id='map_canvas'></div>
+		  
+		  <!-- Code attrubition -->
           <p class='pull-right'>
             <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
-        </p>
+			</p>
+
+
+
+
+
         </div>
       </div>
     </div>
@@ -165,4 +176,7 @@
       //]]>
     </script>
   </body>
+  
+  
+  
 </html>
